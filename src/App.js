@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { useState } from "react";
+import Allphone from "./components/Allphone";
+import Modalbusket from "./components/Modalbusket";
+import { phones } from "./db";
+const App = () => {
+  const [phone, Setphones] = useState(phones);
+  const [modal, Setmodal] = useState(false);
+  //Добавление количества товара
+  /* const addcount = (id) => {
+    const countplus = phone.map((el) =>
+      el.id === id ? { ...el, count: el.count + 1 } : el,
+    );
+    Setphones(countplus);
+  };
+  */
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={() => Setmodal(true)}>Open</button>
+      <Allphone phone={phone} />
+      <Modalbusket modal={modal} Setmodal={Setmodal} />
     </div>
   );
-}
-
+};
 export default App;
