@@ -1,18 +1,15 @@
-import styled from "styled-components";
-import Onephone from "./Onephone";
-const Border = styled.div`
-  border: 1px solid #000;
-`;
-const Allphone = ({ phone }) => {
+import { ButtonBusket } from '../styled/styledallphone';
+import Onephone from './Onephone';
+
+const Allphone = ({ phone, Setmodal, addToOrder, addItem }) => {
   return (
     <div>
-      <Border>
-        {phone.map((el) => (
-          <div key={el.id}>
-            <Onephone phone={el} />
-          </div>
-        ))}
-      </Border>
+      <ButtonBusket onClick={() => Setmodal(true)}>Open basket</ButtonBusket>
+      {phone.map((el) => (
+        <div key={el.id}>
+          <Onephone phone={el} addToOrder={addToOrder} addItem={addItem} />
+        </div>
+      ))}
     </div>
   );
 };
