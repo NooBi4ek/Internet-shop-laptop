@@ -1,17 +1,21 @@
-import { Link } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { addToOrder } from "../shopSlice";
+import { addItem } from "../shopSlice";
 import {
   Smallborder,
   Smallborder_img,
   Smallborder_div,
   Smallborder_button,
-} from '../styled/styledOnephone';
+} from "../styled/styledOnephone";
 
-const Onephone = ({ phone, addToOrder, addItem }) => {
+const Onephone = ({ phone, id }) => {
+  const dispatch = useDispatch();
   return (
     <div>
       <Smallborder>
         <Link to={`/${phone.id}`}>
-          <Smallborder_img src={'./img/' + phone.img} />
+          <Smallborder_img src={"./img/" + phone.img} />
         </Link>
         <Link to={`/${phone.id}`}>
           <Smallborder_div>{phone.name}</Smallborder_div>
@@ -21,12 +25,12 @@ const Onephone = ({ phone, addToOrder, addItem }) => {
         </Link>
         <Smallborder_button
           onClick={() => {
-            addToOrder(phone);
-            addItem(phone.id);
+            dispatch(addToOrder({ phone }));
+            dispatch(addItem({ id }));
           }}
           click={phone.click}
         >
-          {phone.click ? 'In the box' : 'Buy'}
+          {phone.click ? "In the box" : "Buy"}
         </Smallborder_button>
       </Smallborder>
     </div>
