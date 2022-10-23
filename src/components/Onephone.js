@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToOrder } from "../shopSlice";
-import { addItem } from "../shopSlice";
+import { addToOrder, addItem } from "../redux/shopSlice";
 import {
   Smallborder,
   Smallborder_img,
@@ -29,6 +28,7 @@ const Onephone = ({ phone, id }) => {
             dispatch(addItem({ id }));
           }}
           click={phone.click}
+          disabled={phone.click ? true : false}
         >
           {phone.click ? "In the box" : "Buy"}
         </Smallborder_button>

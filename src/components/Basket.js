@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addcount, deletecount, deleteOrder } from "../shopSlice";
+import { addcount, deletecount, deleteOrder } from "../redux/shopSlice";
 import {
   Basket_button,
   Basket_div,
