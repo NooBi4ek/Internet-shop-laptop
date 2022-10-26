@@ -173,8 +173,12 @@ const shopSlice = createSlice({
       },
     ],
     orders: [],
+    sum: 0,
   },
   reducers: {
+    Countsum(state) {
+      state.orders.forEach((el) => (state.sum += el.count * el.price));
+    },
     addToOrder(state, action) {
       let isArr = false;
       state.orders.forEach((el) => {
@@ -210,6 +214,12 @@ const shopSlice = createSlice({
     },
   },
 });
-export const { addToOrder, addcount, addItem, deleteOrder, deletecount } =
-  shopSlice.actions;
+export const {
+  addToOrder,
+  addcount,
+  addItem,
+  deleteOrder,
+  deletecount,
+  Countsum,
+} = shopSlice.actions;
 export default shopSlice.reducer;
