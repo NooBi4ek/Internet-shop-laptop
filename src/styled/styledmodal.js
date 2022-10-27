@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Modal = styled.div`
   height: 100vh;
@@ -10,8 +10,8 @@ export const Modal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: ${(props) => (props.modal ? '1' : '0')};
-  pointer-events: ${(props) => (props.modal ? 'all' : 'none')};
+  opacity: ${(props) => (props.modal ? "1" : "0")};
+  pointer-events: ${(props) => (props.modal ? "all" : "none")};
   transition: 0.5s;
 `;
 export const Modalcontent = styled.div`

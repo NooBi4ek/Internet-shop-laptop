@@ -173,6 +173,7 @@ const shopSlice = createSlice({
       },
     ],
     orders: [],
+    filter_phone: [],
     sum: 0,
   },
   reducers: {

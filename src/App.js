@@ -14,7 +14,12 @@ const App = () => {
       <Modalbusket modal={modal} Setmodal={Setmodal} />
       <Routes>
         <Route path="/:id" element={<One_phone_info />} />
-        <Route path="/" element={<Allphone Setmodal={Setmodal} />} />
+        <Route
+          path="/"
+          element={
+            <Allphone Setmodal={Setmodal} Setmodalsearch={Setmodalsearch} />
+          }
+        />
       </Routes>
     </div>
   );
